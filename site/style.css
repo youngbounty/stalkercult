@@ -1,0 +1,1254 @@
+/* ===== ТЕМНЫЙ ПИКСЕЛЬНЫЙ СТИЛЬ С ОРАНЖЕВЫМ СВЕЧЕНИЕМ ===== */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #030303;
+  background-image: 
+    repeating-linear-gradient(0deg, rgba(20, 20, 20, 0.3) 0px, rgba(20, 20, 20, 0.3) 2px, transparent 2px, transparent 6px),
+    repeating-linear-gradient(90deg, rgba(20, 20, 20, 0.3) 0px, rgba(20, 20, 20, 0.3) 2px, transparent 2px, transparent 6px);
+  color: #c0c0c0;
+  font-family: 'Press Start 2P', monospace;
+  text-align: center;
+  overflow-x: hidden;
+  position: relative;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* ГРАНЖ-ТЕКСТУРА */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-radial-gradient(circle at 20% 30%, rgba(0,0,0,0.3) 0px, rgba(0,0,0,0.3) 2px, transparent 2px, transparent 4px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ===== АНИМАЦИИ ===== */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0, 0);
+    text-shadow: none;
+  }
+  96% {
+    transform: translate(-1px, 0);
+    text-shadow: -1px 0 #ff3300;
+  }
+  97% {
+    transform: translate(1px, 0);
+    text-shadow: 1px 0 #ff9900;
+  }
+  98% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 3px #ff6600, 0 0 5px #ff6600;
+  }
+  50% {
+    text-shadow: 0 0 10px #ff6600, 0 0 15px #ff6600, 0 0 20px rgba(255, 102, 0, 0.5);
+  }
+}
+
+@keyframes borderPulse {
+  0%, 100% {
+    border-color: #ff6600;
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.3);
+  }
+  50% {
+    border-color: #ffaa44;
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.8);
+  }
+}
+
+@keyframes floatGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(255, 102, 0, 0.5)) drop-shadow(0 0 10px rgba(255, 102, 0, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(255, 102, 0, 0.8)) drop-shadow(0 0 25px rgba(255, 102, 0, 0.5));
+  }
+}
+
+@keyframes auraPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.4), inset 0 0 30px rgba(255, 102, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 102, 0, 0.8), inset 0 0 50px rgba(255, 102, 0, 0.3);
+  }
+}
+
+/* ===== ЛОГО (БЕЗ РАМКИ) ===== */
+.logo {
+  position: relative;
+  margin-top: 40px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.logo img {
+  width: 110px;
+  padding: 0;
+  background: transparent;
+  transition: all 0.3s;
+  filter: drop-shadow(0 0 5px rgba(255, 102, 0, 0.5));
+}
+
+.logo img:hover {
+  transform: scale(1.02);
+  filter: drop-shadow(0 0 15px rgba(255, 102, 0, 0.8));
+}
+
+/* ===== МЕНЮ ===== */
+.menu {
+  margin: 45px 0 35px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  position: relative;
+  animation: fadeInUp 0.7s ease-out;
+}
+
+.menu a {
+  color: #c0c0c0;
+  text-decoration: none;
+  font-size: 11px;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  position: relative;
+  font-family: 'Press Start 2P', monospace;
+  background: #0a0a0a;
+  border: 1px solid #2a2a2a;
+  transition: all 0.2s;
+  letter-spacing: 1px;
+}
+
+.menu a::before {
+  content: '[';
+  position: absolute;
+  left: -12px;
+  opacity: 0;
+  transition: all 0.2s;
+  color: #ff6600;
+}
+
+.menu a::after {
+  content: ']';
+  position: absolute;
+  right: -12px;
+  opacity: 0;
+  transition: all 0.2s;
+  color: #ff6600;
+}
+
+.menu a:hover {
+  color: #ff9900;
+  background: #0f0f0f;
+  border-color: #ff6600;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
+}
+
+.menu a:hover::before,
+.menu a:hover::after {
+  opacity: 1;
+}
+
+/* ===== HOME 3D КАРТОЧКА С КРУТЫМИ ЭФФЕКТАМИ (БЕЗ СКАНИРУЮЩЕЙ ЛИНИИ) ===== */
+.hero-3d-container {
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeInScale 0.8s ease-out;
+  perspective: 1200px;
+}
+
+.hero-3d-card {
+  position: relative;
+  width: 560px;
+  max-width: 85vw;
+  height: 380px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.hero-3d-card:hover {
+  transform: rotateX(5deg) rotateY(8deg) translateZ(20px);
+}
+
+.hero-3d-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  transform-style: preserve-3d;
+  border-radius: 0px;
+  background: #000;
+  overflow: hidden;
+  border: 2px solid #ff6600;
+  box-shadow: 0 0 20px rgba(255, 102, 0, 0.4), inset 0 0 30px rgba(255, 102, 0, 0.1);
+  animation: borderPulse 3s infinite;
+}
+
+.hero-3d-card:hover .hero-3d-inner {
+  border-color: #ffaa44;
+  box-shadow: 0 0 40px rgba(255, 102, 0, 0.8), inset 0 0 50px rgba(255, 102, 0, 0.3);
+  animation: none;
+}
+
+.hero-3d-front {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  transform: translateZ(20px);
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1), filter 0.3s ease;
+  filter: brightness(0.85) contrast(1.15) saturate(1.1);
+  transform: scale(1);
+}
+
+.hero-3d-card:hover .hero-image {
+  transform: scale(1.08);
+  filter: brightness(0.95) contrast(1.2) saturate(1.2);
+}
+
+/* ГЛОУ ЭФФЕКТ */
+.hero-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 102, 0, 0.4), transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  mix-blend-mode: overlay;
+}
+
+.hero-3d-card:hover .hero-glow {
+  opacity: 1;
+  animation: auraPulse 1.5s infinite;
+}
+
+/* АУРА ВОКРУГ КАРТИНКИ (вместо сканирующей линии) */
+.hero-aura {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: radial-gradient(circle, rgba(255, 102, 0, 0.2), transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.hero-3d-card:hover .hero-aura {
+  opacity: 1;
+  animation: auraPulse 1s infinite;
+}
+
+/* ПАРТИКЛЫ ВОКРУГ КАРТОЧКИ */
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 2;
+}
+
+.hero-particles .particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #ff6600;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 6px #ff6600, 0 0 10px rgba(255, 102, 0, 0.5);
+  animation: particleFloat 2s ease-in-out infinite;
+}
+
+.hero-particles .particle:nth-child(1) { top: 15%; left: 5%; animation-delay: 0s; width: 3px; height: 3px; }
+.hero-particles .particle:nth-child(2) { top: 85%; left: 92%; animation-delay: 0.3s; width: 5px; height: 5px; }
+.hero-particles .particle:nth-child(3) { top: 40%; left: 98%; animation-delay: 0.6s; width: 2px; height: 2px; }
+.hero-particles .particle:nth-child(4) { top: 75%; left: 8%; animation-delay: 0.9s; width: 4px; height: 4px; }
+.hero-particles .particle:nth-child(5) { top: 25%; left: 88%; animation-delay: 1.2s; width: 3px; height: 3px; }
+.hero-particles .particle:nth-child(6) { top: 55%; left: 2%; animation-delay: 1.5s; width: 6px; height: 6px; }
+.hero-particles .particle:nth-child(7) { top: 90%; left: 45%; animation-delay: 1.8s; width: 2px; height: 2px; }
+.hero-particles .particle:nth-child(8) { top: 10%; left: 70%; animation-delay: 2.1s; width: 4px; height: 4px; }
+
+@keyframes particleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+  20% {
+    opacity: 0.9;
+    transform: translateY(-10px) scale(1.2);
+  }
+  80% {
+    opacity: 0.5;
+    transform: translateY(-30px) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.5);
+  }
+}
+
+/* ОГНИ ПО КРАЯМ */
+.hero-3d-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    #ff6600, #ff3300, #ff6600, #ff9900, #ff6600);
+  background-size: 400% 400%;
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: borderRotate 4s linear infinite;
+}
+
+.hero-3d-card:hover::before {
+  opacity: 0.6;
+}
+
+@keyframes borderRotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ТЕКСТ ПОД КАРТОЧКОЙ */
+.hero-text p {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #ff6600;
+  text-transform: uppercase;
+  margin-top: 25px;
+  font-family: 'Press Start 2P', monospace;
+  background: #0a0a0a;
+  border: 1px solid #ff6600;
+  padding: 8px 16px;
+  display: inline-block;
+  animation: textGlow 2s infinite;
+  position: relative;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s;
+}
+
+.hero-text p:hover {
+  transform: scale(1.05);
+  letter-spacing: 3px;
+}
+
+/* ===== ТОВАРЫ ===== */
+.products {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 40px 30px 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  width: 320px;
+  background: #0a0a0a;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: 1px solid #2a2a2a;
+  border-bottom: 2px solid #ff6600;
+  animation: fadeInUp 0.6s ease-out;
+  transform: translateZ(0);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 102, 0, 0.08), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #ff6600;
+  border-bottom-width: 3px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 12px rgba(255, 102, 0, 0.3);
+}
+
+.card-img {
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  position: relative;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.card-img img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+  transform: translateZ(0);
+}
+
+.card:hover .card-img img {
+  transform: scale(1.02);
+}
+
+.card-info {
+  padding: 16px 16px 20px;
+  text-align: center;
+  position: relative;
+  background: #0a0a0a;
+}
+
+.card-info p {
+  font-size: 9px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  color: #d4d4d4;
+  font-family: 'Press Start 2P', monospace;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.card-info span {
+  font-size: 13px;
+  font-weight: bold;
+  color: #ff9900;
+  display: block;
+  margin: 8px 0;
+  font-family: 'Press Start 2P', monospace;
+  text-shadow: 0 0 3px #ff6600;
+}
+
+.buy-button {
+  margin-top: 12px;
+  padding: 8px 0;
+  width: 100%;
+  background: #0f0f0f;
+  border: 1px solid #ff6600;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ff9900;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Press Start 2P', monospace;
+  position: relative;
+}
+
+.buy-button:hover {
+  background: #ff6600;
+  color: #0a0a0a;
+  border-color: #ff9900;
+  transform: scale(0.98);
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+}
+
+/* ===== МОДАЛЬНОЕ ОКНО ===== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.96);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #0a0a0a;
+  padding: 20px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  border: 2px solid #ff6600;
+  position: relative;
+  box-shadow: 0 0 25px rgba(255, 102, 0, 0.4);
+}
+
+.modal-content img {
+  width: 100%;
+  margin-bottom: 16px;
+  border: 1px solid #ff6600;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ff6600;
+  transition: 0.2s;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.close:hover {
+  color: #ff9900;
+  transform: scale(1.1);
+}
+
+/* ===== ВЫБОР РАЗМЕРА ===== */
+.size-selector {
+  margin: 16px 0;
+  text-align: center;
+}
+
+.size-selector label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #ff6600;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.size-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+
+.size-option {
+  width: 50px;
+  padding: 8px 0;
+  background: #0f0f0f;
+  border: 1px solid #ff6600;
+  color: #c0c0c0;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.size-option:hover {
+  background: #1a1a1a;
+  border-color: #ff9900;
+  transform: scale(1.02);
+  box-shadow: 0 0 8px rgba(255, 102, 0, 0.4);
+  color: #ff9900;
+}
+
+.size-option.selected {
+  background: #ff6600;
+  border-color: #ff9900;
+  color: #0a0a0a;
+  box-shadow: 0 0 12px rgba(255, 102, 0, 0.5);
+}
+
+.size-chart {
+  margin-top: 10px;
+  padding: 8px;
+  background: #050505;
+  font-size: 7px;
+  font-family: monospace;
+  border: 1px solid #2a2a2a;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  padding: 10px;
+  background: #0f0f0f;
+  border: 1px solid #ff6600;
+  font-size: 9px;
+  color: #ff9900;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 10px;
+  font-family: 'Press Start 2P', monospace;
+  text-transform: uppercase;
+}
+
+.add-to-cart-btn:hover {
+  background: #ff6600;
+  color: #0a0a0a;
+  border-color: #ff9900;
+  box-shadow: 0 0 12px rgba(255, 102, 0, 0.5);
+}
+
+/* ===== КОРЗИНА ===== */
+#cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 680px;
+  margin: 30px auto;
+  animation: fadeInUp 0.6s ease-out;
+  padding: 0 20px;
+}
+
+.cart-item {
+  background: #0a0a0a;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border: 1px solid #2a2a2a;
+  border-left: 4px solid #ff6600;
+  transition: all 0.2s;
+}
+
+.cart-item:hover {
+  transform: translateX(3px);
+  background: #0f0f0f;
+  border-left-width: 6px;
+  border-left-color: #ff9900;
+}
+
+.cart-item-img {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  background: #000;
+  border: 1px solid #2a2a2a;
+}
+
+.cart-item-info {
+  flex: 1;
+  text-align: left;
+}
+
+.cart-item-info h4 {
+  margin: 0 0 5px;
+  font-size: 9px;
+  font-family: 'Press Start 2P', monospace;
+  color: #d4d4d4;
+  line-height: 1.3;
+}
+
+.cart-item-price {
+  color: #ff9900;
+  font-weight: bold;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+}
+
+.cart-item-size {
+  font-size: 7px;
+  color: #ff9966;
+  margin-top: 4px;
+  display: inline-block;
+  background: rgba(255, 102, 0, 0.15);
+  padding: 2px 6px;
+  font-family: monospace;
+}
+
+.cart-item-remove {
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  padding: 5px 12px;
+  color: #8a8a8a;
+  cursor: pointer;
+  transition: 0.2s;
+  font-family: monospace;
+  font-size: 8px;
+}
+
+.cart-item-remove:hover {
+  background: #2a1a0a;
+  border-color: #ff6600;
+  color: #ff9966;
+}
+
+.cart-total {
+  font-size: 13px;
+  font-weight: bold;
+  color: #ff9900;
+  margin: 18px 0;
+  text-align: center;
+  font-family: 'Press Start 2P', monospace;
+  border-top: 1px solid #2a2a2a;
+  padding-top: 18px;
+}
+
+.clear-cart {
+  background: transparent;
+  margin-top: 10px;
+  padding: 8px 20px;
+  border: 1px solid #2a2a2a;
+  color: #8a8a8a;
+  cursor: pointer;
+  transition: 0.2s;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+}
+
+.clear-cart:hover {
+  background: #2a1a0a;
+  border-color: #ff6600;
+  color: #ff9966;
+}
+
+.cart-empty {
+  font-size: 10px;
+  opacity: 0.7;
+  margin: 60px;
+  font-family: 'Press Start 2P', monospace;
+  border: 1px solid #2a2a2a;
+  padding: 30px;
+  background: #0a0a0a;
+}
+
+.back-link {
+  display: inline-block;
+  margin: 40px auto;
+  color: #ff6600;
+  text-decoration: none;
+  border-bottom: 1px dashed #ff6600;
+  transition: 0.2s;
+  font-family: monospace;
+  font-size: 9px;
+}
+
+.back-link:hover {
+  color: #ff9900;
+  letter-spacing: 1px;
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  margin-top: 70px;
+  text-align: center;
+  background: #0a0a0a;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 35px;
+  border: 1px solid #ff6600;
+  animation: fadeInUp 0.8s ease-out;
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.2);
+}
+
+.contact h1 {
+  margin-bottom: 20px;
+  font-size: 13px;
+  font-family: 'Press Start 2P', monospace;
+  color: #ff6600;
+  letter-spacing: 2px;
+  animation: textGlow 2s infinite;
+}
+
+.contact p {
+  font-size: 9px;
+  margin: 14px 0;
+  transition: 0.2s;
+  font-family: 'Press Start 2P', monospace;
+  border: 1px solid #2a2a2a;
+  padding: 8px;
+  background: #050505;
+}
+
+.contact p:hover {
+  transform: translateX(4px);
+  color: #ff9900;
+  border-color: #ff6600;
+}
+
+/* ===== БЛОК ПОДДЕРЖКИ ===== */
+.support-section {
+  margin: 70px auto 50px;
+  padding: 35px 20px;
+  max-width: 860px;
+  background: #0a0a0a;
+  border: 1px solid #2a2a2a;
+  animation: fadeInUp 0.7s ease-out;
+}
+
+.support-title h2 {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #ff6600;
+  margin: 0 0 25px 0;
+  font-family: 'Press Start 2P', monospace;
+  border-bottom: 1px solid #2a2a2a;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.support-channels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.support-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #050505;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #c0c0c0;
+  transition: all 0.2s;
+  border: 1px solid #2a2a2a;
+  min-width: 260px;
+}
+
+.support-card:hover {
+  transform: translateY(-2px);
+  border-color: #ff6600;
+  background: #0f0f0f;
+  box-shadow: 0 0 12px rgba(255, 102, 0, 0.3);
+}
+
+.support-icon-large {
+  width: 40px;
+  height: 40px;
+  background: #0f0f0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  border: 1px solid #2a2a2a;
+}
+
+.support-card:hover .support-icon-large {
+  background: #ff6600;
+  transform: rotate(360deg);
+}
+
+.support-icon-large svg {
+  width: 24px;
+  height: 24px;
+  fill: #ff6600;
+  transition: fill 0.2s;
+}
+
+.support-card:hover .support-icon-large svg {
+  fill: #0a0a0a;
+}
+
+.support-info {
+  flex: 1;
+  text-align: left;
+}
+
+.support-channel-name {
+  font-size: 9px;
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+  color: #ff9900;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.support-channel-desc {
+  font-size: 7px;
+  opacity: 0.6;
+  font-family: monospace;
+}
+
+.support-arrow {
+  font-size: 12px;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.2s;
+  color: #ff6600;
+}
+
+.support-card:hover .support-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== ЧАСТИЦЫ ===== */
+.particle {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: #ff6600;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatParticle 12s linear infinite;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  80% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-20vh);
+    opacity: 0;
+  }
+}
+
+/* ===== СТИЛИ ДЛЯ ФОРМЫ ОФОРМЛЕНИЯ ===== */
+.checkout-container {
+  max-width: 600px;
+  margin: 30px auto;
+  background: #0a0a0a;
+  border: 2px solid #ff6600;
+  padding: 30px;
+  animation: fadeInUp 0.6s ease-out;
+  box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+}
+
+.checkout-container h2 {
+  font-size: 14px;
+  color: #ff6600;
+  margin-bottom: 25px;
+  text-align: center;
+  font-family: 'Press Start 2P', monospace;
+  animation: textGlow 2s infinite;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 9px;
+  color: #ff6600;
+  font-family: 'Press Start 2P', monospace;
+  letter-spacing: 1px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  background: #050505;
+  border: 1px solid #2a2a2a;
+  color: #c0c0c0;
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  transition: all 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #ff6600;
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
+}
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+  border-color: #ff6600;
+}
+
+.delivery-cost,
+.total-final {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #050505;
+  margin: 15px 0;
+  border-left: 3px solid #ff6600;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+}
+
+.delivery-cost span:first-child,
+.total-final span:first-child {
+  color: #c0c0c0;
+}
+
+.delivery-cost span:last-child,
+.total-final span:last-child {
+  color: #ff9900;
+  font-size: 12px;
+  text-shadow: 0 0 5px #ff6600;
+}
+
+.agreement {
+  margin: 25px 0;
+  padding: 15px;
+  background: #050505;
+  border: 1px solid #2a2a2a;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 8px;
+  font-family: 'Courier Prime', monospace;
+  color: #c0c0c0;
+  line-height: 1.4;
+}
+
+.checkbox-label input {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: #ff6600;
+}
+
+.checkbox-label a {
+  color: #ff6600;
+  text-decoration: none;
+  border-bottom: 1px dashed #ff6600;
+}
+
+.checkbox-label a:hover {
+  color: #ff9900;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.submit-order-btn,
+.back-to-cart-btn {
+  flex: 1;
+  padding: 12px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.submit-order-btn {
+  background: #ff6600;
+  color: #0a0a0a;
+  border: 1px solid #ff9900;
+}
+
+.submit-order-btn:hover {
+  background: #ff8800;
+  transform: scale(0.98);
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+}
+
+.submit-order-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.back-to-cart-btn {
+  background: transparent;
+  color: #ff6600;
+  border: 1px solid #ff6600;
+}
+
+.back-to-cart-btn:hover {
+  background: #2a1a0a;
+  transform: scale(0.98);
+}
+
+.cart-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.checkout-btn {
+  background: #ff6600;
+  color: #0a0a0a;
+  border: 1px solid #ff9900;
+  padding: 12px 24px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.checkout-btn:hover {
+  background: #ff8800;
+  transform: scale(0.98);
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+}
+
+/* ===== МОДАЛЬНОЕ ОКНО ПОЛИТИКИ ===== */
+#privacy-modal .modal-content {
+  max-width: 500px;
+  text-align: left;
+}
+
+.privacy-text {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 15px;
+  margin: 15px 0;
+  background: #050505;
+  border: 1px solid #2a2a2a;
+  font-size: 9px;
+  font-family: 'Courier Prime', monospace;
+  line-height: 1.6;
+}
+
+.privacy-text p {
+  margin: 10px 0;
+}
+
+.close-privacy-btn {
+  background: #ff6600;
+  color: #0a0a0a;
+  border: none;
+  padding: 10px 20px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.close-privacy-btn:hover {
+  background: #ff8800;
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 768px) {
+  .card {
+    width: 280px;
+  }
+  .products {
+    gap: 25px;
+  }
+  .hero-3d-card {
+    width: 90vw;
+    height: 55vw;
+  }
+  .support-card {
+    flex-direction: column;
+    text-align: center;
+    min-width: auto;
+    width: 100%;
+  }
+  .support-info {
+    text-align: center;
+  }
+  .support-arrow {
+    display: none;
+  }
+  .menu a {
+    font-size: 9px;
+    padding: 6px 12px;
+  }
+}
+
+/* ===== ДОПОЛНИТЕЛЬНЫЕ ЭЛЕМЕНТЫ ===== */
+h1 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  color: #ff6600;
+  text-shadow: 0 0 5px #ff6600;
+  margin: 20px 0;
+  animation: textGlow 2s infinite;
+}
+
+button, .buy-button, .add-to-cart-btn, .clear-cart {
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+button:active, .buy-button:active {
+  transform: scale(0.98);
+}
