@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="logo">
+  <img src="img/stalkercultlogo.jpg" alt="logo">
+</div>
+
+<div class="menu">
+  <a href="indexhome.html">HOME</a>
+  <a href="index.html">SHOP</a>
+  <a href="contact.html">CONTACT</a>
+  <a href="cart.html">CART (0)</a>
+</div>
+
+<div class="products">
+  <div class="card" onclick="openModal('RCB RUSSIA WHITE T-SHIRT', 4000, 'img/rcbdrop2.jpg')">
+    <div class="card-img">
+      <img src="img/rcbdrop2.jpg" alt="RCB WHITE T-SHIRT">
+    </div>
+    <div class="card-info">
+      <p>RCB RUSSIA WHITE T-SHIRT</p>
+      <span>4000₽</span>
+      <button class="buy-button" onclick="event.stopPropagation(); openSizeModal('RCB RUSSIA WHITE T-SHIRT', 4000, 'img/rcbdrop2.jpg')">КУПИТЬ</button>
+    </div>
+  </div>
+
+  <div class="card" onclick="openModal('RCB RUSSIA BLACK POLO', 4500, 'img/rcbdrop1.jpg')">
+    <div class="card-img">
+      <img src="img/rcbdrop1.jpg" alt="RCB BLACK POLO">
+    </div>
+    <div class="card-info">
+      <p>RCB RUSSIA BLACK POLO</p>
+      <span>4500₽</span>
+      <button class="buy-button" onclick="event.stopPropagation(); openSizeModal('RCB RUSSIA BLACK POLO', 4500, 'img/rcbdrop1.jpg')">КУПИТЬ</button>
+    </div>
+  </div>
+</div>
+
+<!-- Модальное окно с деталями товара (при клике на карточку) -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <img id="modal-img" src="">
+    <h2 id="modal-title"></h2>
+    <p id="modal-price"></p>
+    
+    <div class="size-selector">
+      <label>📏 ВЫБЕРИТЕ РАЗМЕР:</label>
+      <div class="size-buttons">
+        <button type="button" class="size-option" data-size="S">S</button>
+        <button type="button" class="size-option" data-size="M">M</button>
+        <button type="button" class="size-option" data-size="L">L</button>
+        <button type="button" class="size-option" data-size="XL">XL</button>
+      </div>
+      <div class="size-chart">
+        <small>S — грудь 50см | M — грудь 54см | L — грудь 58см | XL — грудь 62см</small>
+      </div>
+    </div>
+    
+    <button id="buy-btn" class="add-to-cart-btn">ДОБАВИТЬ В КОРЗИНУ</button>
+  </div>
+</div>
+
+<!-- Модальное окно выбора размера (при нажатии на КУПИТЬ) -->
+<div id="size-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeSizeModal()">×</span>
+    <img id="size-modal-img" src="">
+    <h2 id="size-modal-title"></h2>
+    <p id="size-modal-price"></p>
+    
+    <div class="size-selector">
+      <label>📏 ВЫБЕРИТЕ РАЗМЕР:</label>
+      <div class="size-buttons">
+        <button type="button" class="size-option" data-size="S">S</button>
+        <button type="button" class="size-option" data-size="M">M</button>
+        <button type="button" class="size-option" data-size="L">L</button>
+        <button type="button" class="size-option" data-size="XL">XL</button>
+      </div>
+      <div class="size-chart">
+        <small>S — грудь 50см | M — грудь 54см | L — грудь 58см | XL — грудь 62см</small>
+      </div>
+    </div>
+    
+    <button id="confirm-size-btn" class="add-to-cart-btn">ДОБАВИТЬ В КОРЗИНУ</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

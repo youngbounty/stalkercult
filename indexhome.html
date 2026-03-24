@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>HOME - STALKER CULT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="logo">
+  <img src="img/stalkercultlogo.jpg" alt="logo">
+</div>
+
+<div class="menu">
+  <a href="indexhome.html">HOME</a>
+  <a href="index.html">SHOP</a>
+  <a href="contact.html">CONTACT</a>
+  <a href="cart.html">CART (0)</a>
+</div>
+
+<!-- 3D карточка с эффектами - кликабельна -->
+<div class="hero-3d-container">
+  <div class="hero-3d-card" id="heroCard" title="Нажмите чтобы перейти в магазин" onclick="window.location.href='index.html'">
+    <div class="hero-3d-inner">
+      <div class="hero-3d-front">
+        <img src="img/RCBBloodTearslogoTransparent.jpg" alt="STALKER CULT" class="hero-image" onerror="this.src='https://placehold.co/800x600/0a0c0f/ffcc66?text=STALKER+CULT'">
+        <div class="hero-glow"></div>
+        <div class="hero-scan-line"></div>
+      </div>
+    </div>
+    <div class="hero-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+  </div>
+  <div class="hero-text" style="margin-top: 20px;">
+    <p style="color: #ff6600; font-size: 0.7rem;">✨ НАЖМИ НА КАРТИНКУ ЧТОБЫ ПЕРЕЙТИ В МАГАЗИН ✨</p>
+  </div>
+</div>
+
+<!-- Блок поддержки -->
+<div class="support-section">
+  <div class="support-title">
+    <h2>ПРИ ПОДДЕРЖКЕ</h2>
+  </div>
+  <div class="support-channels">
+    <a href="https://t.me/stalkercult" target="_blank" class="support-card" id="tg-stalker">
+      <div class="support-icon-large">
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.2-.04-.28-.02-.12.03-2.01 1.28-2.84 1.81-.27.18-.51.27-.73.27-.24 0-.7-.14-1.04-.25-.43-.14-.77-.22-.74-.47.02-.13.2-.26.55-.4 2.07-.9 3.46-1.5 4.16-1.78 1.98-.8 2.39-.94 2.66-.94.06 0 .16.01.23.07.06.05.09.13.08.2-.02.05-.11.57-.22 1.18z"/>
+        </svg>
+      </div>
+      <div class="support-info">
+        <div class="support-channel-name">stalkercult</div>
+        <div class="support-channel-desc"></div>
+      </div>
+      <div class="support-arrow">→</div>
+    </a>
+    
+    <a href="https://t.me/bountyvisual" target="_blank" class="support-card" id="tg-bounty">
+      <div class="support-icon-large">
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.2-.04-.28-.02-.12.03-2.01 1.28-2.84 1.81-.27.18-.51.27-.73.27-.24 0-.7-.14-1.04-.25-.43-.14-.77-.22-.74-.47.02-.13.2-.26.55-.4 2.07-.9 3.46-1.5 4.16-1.78 1.98-.8 2.39-.94 2.66-.94.06 0 .16.01.23.07.06.05.09.13.08.2-.02.05-.11.57-.22 1.18z"/>
+        </svg>
+      </div>
+      <div class="support-info">
+        <div class="support-channel-name">баунти крип</div>
+        <div class="support-channel-desc"></div>
+      </div>
+      <div class="support-arrow">→</div>
+    </a>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

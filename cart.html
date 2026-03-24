@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Корзина - STALKER CULT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="logo">
+  <img src="img/stalkercultlogo.jpg" alt="logo">
+</div>
+
+<div class="menu">
+  <a href="indexhome.html">HOME</a>
+  <a href="index.html">SHOP</a>
+  <a href="contact.html">CONTACT</a>
+  <a href="cart.html">CART (0)</a>
+</div>
+
+<h1 style="margin-top: 20px;">🛒 КОРЗИНА</h1>
+
+<div id="cart"></div>
+
+<!-- ФОРМА ОФОРМЛЕНИЯ ЗАКАЗА -->
+<div id="checkout-form" style="display: none;">
+  <div class="checkout-container">
+    <h2>📦 ОФОРМЛЕНИЕ ЗАКАЗА</h2>
+    
+    <div class="form-group">
+      <label>ФИО *</label>
+      <input type="text" id="fullname" placeholder="Иванов Иван Иванович" required>
+    </div>
+    
+    <div class="form-group">
+      <label>Телефон *</label>
+      <input type="tel" id="phone" placeholder="+7 (999) 123-45-67" required>
+    </div>
+    
+    <div class="form-group">
+      <label>Email *</label>
+      <input type="email" id="email" placeholder="your@email.com" required>
+    </div>
+    
+    <div class="form-group">
+      <label>Telegram (для связи)</label>
+      <input type="text" id="telegram" placeholder="@username">
+    </div>
+    
+    <div class="form-group">
+      <label>Способ доставки *</label>
+      <select id="delivery-method" required>
+        <option value="">Выберите способ доставки</option>
+        <option value="cdek">СДЭК (ПВЗ)</option>
+        <option value="yandex">Яндекс Доставка (ПВЗ)</option>
+      </select>
+    </div>
+    
+    <div class="form-group" id="pvz-group">
+      <label>Адрес пункта выдачи *</label>
+      <input type="text" id="pvz-address" placeholder="Город, адрес ПВЗ" required>
+      <small style="display: block; margin-top: 5px; color: #ff9966;">📍 Отправка из Челябинска</small>
+    </div>
+    
+    <div class="form-group">
+      <label>Комментарий к заказу</label>
+      <textarea id="comment" rows="2" placeholder="Дополнительная информация"></textarea>
+    </div>
+    
+    <div class="delivery-cost">
+      <span>🚚 Стоимость доставки:</span>
+      <span id="delivery-price">0 ₽</span>
+    </div>
+    
+    <div class="total-final">
+      <span>💰 ИТОГО К ОПЛАТЕ:</span>
+      <span id="total-final">0 ₽</span>
+    </div>
+    
+    <div class="agreement">
+      <label class="checkbox-label">
+        <input type="checkbox" id="consent" required>
+        <span>Я даю своё согласие на обработку персональных данных и ознакомлен с <a href="#" id="privacy-link">Политикой конфиденциальности</a></span>
+      </label>
+    </div>
+    
+    <div class="form-actions">
+      <button id="submit-order" class="submit-order-btn">✅ ОФОРМИТЬ ЗАКАЗ</button>
+      <button id="back-to-cart" class="back-to-cart-btn">← НАЗАД К КОРЗИНЕ</button>
+    </div>
+  </div>
+</div>
+
+<!-- Модальное окно с политикой конфиденциальности -->
+<div id="privacy-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closePrivacyModal()">×</span>
+    <h2>ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</h2>
+    <div class="privacy-text">
+      <p>1. Администрация интернет-магазина STALKER CULT обязуется не разглашать персональные данные пользователей третьим лицам.</p>
+      <p>2. Сбор персональных данных осуществляется исключительно для обработки и доставки заказов.</p>
+      <p>3. Пользователь имеет право отказаться от подписки на рассылки в любой момент.</p>
+      <p>4. Все данные хранятся в зашифрованном виде и используются только для выполнения заказа.</p>
+      <p>5. Администрация не несет ответственности за действия третьих лиц, получивших доступ к данным пользователя через его устройство.</p>
+      <p>6. Продолжая использование сайта, вы соглашаетесь с условиями данной политики.</p>
+      <br>
+      <p><strong>Контакты для связи:</strong> stalkercult@mail.com | Telegram: @stalkercult</p>
+    </div>
+    <button class="close-privacy-btn" onclick="closePrivacyModal()">ПОНЯТНО</button>
+  </div>
+</div>
+
+<br>
+<a href="index.html" class="back-link">← назад в магазин</a>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
